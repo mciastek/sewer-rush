@@ -33,7 +33,6 @@ module SewerRush {
 
       this.scale.setTo(this.scaleBase, this.scaleBase);
 
-      // this.body.bounce.y = 0.8;
       this.body.collideWorldBounds = true;
     }
 
@@ -61,7 +60,12 @@ module SewerRush {
       this.body.velocity.x = 0;
 
       if (movingLeft || movingRight) {
-        this.animations.play('walk');
+
+        if (standing) {
+          this.animations.play('walk');
+        } else {
+          this.animations.play('jump');
+        }
 
         if (movingLeft) {
           this.move('left');
