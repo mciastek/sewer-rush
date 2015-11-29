@@ -7,8 +7,9 @@ module SewerRush {
     facing: string;
     wasStanding: boolean;
     scaleBase: number;
+    ground: SewerRush.World.Ground;
 
-    constructor(game: Phaser.Game, x: number, y: number) {
+    constructor(game: Phaser.Game, x: number, y: number, ground: SewerRush.World.Ground) {
       super(game, x, y, 'rat-sprite', 0);
 
       this.jumpVelocity = 250;
@@ -17,10 +18,11 @@ module SewerRush {
       this.facing = 'idle';
       this.wasStanding = false;
       this.scaleBase = 1.5;
+      this.ground = ground;
 
       this.anchor.setTo(0.5, 1);
 
-      this.animations.add('idle', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10, true);
+      this.animations.add('idle', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 5, true);
       this.animations.add('walk', [9, 10, 11, 12, 13], 10, true);
       this.animations.add('jump', [13, 14, 15, 16, 17], 10, true);
 
@@ -69,10 +71,12 @@ module SewerRush {
 
         if (movingLeft) {
           this.move('left');
+          this.ground.move('left');
         }
 
         if (movingRight) {
           this.move('right');
+          this.ground.move('right');
         }
       } else {
 

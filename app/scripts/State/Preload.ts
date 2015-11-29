@@ -1,3 +1,5 @@
+/// <reference path="../../vendor/phaser-official/typescript/phaser.d.ts"/>
+
 module SewerRush.State {
   export class Preload extends Phaser.State {
     private preloadBar: Phaser.Sprite;

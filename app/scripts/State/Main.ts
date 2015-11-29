@@ -1,5 +1,6 @@
 /// <reference path='../Player.ts' />
 /// <reference path='../World/Platforms.ts' />
+/// <reference path='../World/Ground.ts' />
 
 module SewerRush.State {
   export class Main extends Phaser.State {
@@ -14,11 +15,11 @@ module SewerRush.State {
       this.game.physics.arcade.skipQuadTree = false;
 
       var platforms = this.game.add.group();
-      var platforms = new World.Platforms(this.game, this.game.world, 'platforms');
-      var ground = this.game.add.tileSprite(0, this.game.world.height, this.game.width, 65, 'floor');
+      var platforms = new SewerRush.World.Platforms(this.game, this.game.world, 'platforms');
+      var ground = new SewerRush.World.Ground(this.game, 0, this.game.world.height, this.game.width * 1.2, 65);
 
       // Create game objects here
-      this.player = new Player(this.game, 0, this.game.world.height);
+      this.player = new Player(this.game, 0, this.game.world.height, ground);
     }
   }
 }
