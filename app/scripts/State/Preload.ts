@@ -11,6 +11,8 @@ module SewerRush.State {
       this.load.image('menu-background', 'assets/images/menu-background.png');
       this.load.spritesheet('rat-sprite', 'assets/images/rat-sprite.png', 32, 32, (1184 / 32));
       this.load.image('floor', 'assets/images/floor.png');
+      this.load.image('far-background', 'assets/images/far-background.png');
+      this.load.image('near-pipes', 'assets/images/near-pipes.png');
     }
 
     create() {

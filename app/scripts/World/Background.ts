@@ -1,15 +1,15 @@
 /// <reference path="../../vendor/phaser-official/typescript/phaser.d.ts"/>
 
 module SewerRush.World {
-  export class Ground extends Phaser.TileSprite {
+  export class Background extends Phaser.TileSprite {
     startPosition: {
       x: number,
       y: number
     };
     moveVelocity: number;
 
-    constructor(game: Phaser.Game, x: number, y: number, width: number, height: number) {
-      super(game, x, y, width, height, 'floor');
+    constructor(game: Phaser.Game, x: number, y: number, width: number, height: number, asset: string) {
+      super(game, x, y, width, height, asset);
       this.game.add.existing(this);
 
       this.moveVelocity = 1;
